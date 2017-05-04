@@ -11,10 +11,10 @@ WORKDIR /usr/src/app
 
 RUN ["npm", "install"]
 
+RUN ["npm", "run", "build"]
+
 ENV PORT 80
 
 EXPOSE 80
-
-RUN ["npm", "run", "build"]
 
 ENTRYPOINT ["npm", "run", "start"]
