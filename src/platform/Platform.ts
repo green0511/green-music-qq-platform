@@ -1,8 +1,11 @@
 import * as http from 'http'
+import * as  mongoose from 'mongoose'
 import { connect } from 'mongoose'
 import * as debug from 'debug'
 import { ISearcher  } from './interfaces'
 import { App } from './App'
+
+(<any>mongoose)['Promise'] = Promise
 
 let serverDebugger = debug('ts-express:server')
 
