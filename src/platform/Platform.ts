@@ -32,10 +32,10 @@ export class Platform  {
   
   // 连接数据库
   connectDatabase(): Promise<null> {
-    let {user, password, db = this.name, port = 27017, host = 'localhost'} = this.config
+    let {user, password, db = this.name, host = 'localhost:27017'} = this.config
     let auth = user && password ? `${user}:${password}@` : ``
     return new Promise((resolve, reject) => {
-      connect(`mongodb://${auth}${host}:${port}/${db}`).then(() => resolve(null))
+      connect(`mongodb://${auth}${host}/${db}`).then(() => resolve(null))
     })
   }
   
